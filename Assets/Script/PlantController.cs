@@ -9,31 +9,34 @@ public class PlantController : MonoBehaviour
     private Vector3 Spos;       // 初期座標
 
     private float grow;         // 成長値
+    private bool growflag;      // 成長フラグ
+    private bool retreatflag;   // 退行フラグ
 
-    private GameObject collisionobj;
+    Vector3 dir;                // 向き
     // Start is called before the first frame update
     void Start()
     {
+        growflag = false;
+        retreatflag = false;
         Transform trans = this.transform;
         Vector3 pos = trans.position;
         Spos = pos;             // 初期座標を保存
 
         grow = 0.0f;
+
+        // 向き取得
+        float angleDir = transform.eulerAngles.z * (Mathf.PI / 180.0f);
+        dir = new Vector3(Mathf.Cos(angleDir), Mathf.Sin(angleDir), 0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void OnTriggerStay(Collider hit)
-    {
-        
-
-        // 太陽光判定
-        if (hit.gameObject.GetComponent<SunLightController>())
+        // 成長処理
+        if (growflag)  
         {
+
+            // 植物が成長
             if (grow < growmax)
             {
 
@@ -41,18 +44,60 @@ public class PlantController : MonoBehaviour
                 Transform trans = this.transform;
                 Vector3 pos = trans.position;
                 // 真っすぐに成長
-                pos.x += growspeed;
+                pos += dir * growspeed;
                 grow += growspeed;
-                gameObject.GetComponent<BoxCollider>().isTrigger = true;
-
+                
                 trans.position = pos;
             }
+            else
+            {
+                growflag = false;
+            }
+        }
+
+        // 退行処理
+        if (retreatflag)
+        {
+            // 植物が成長
+            if (grow > 0.0f)
+            {
+                Transform trans = this.transform;
+                Vector3 pos = trans.position;
+                // 真っすぐに成長
+                pos -= dir * growspeed;
+                grow += -growspeed;
+                
+                trans.position = pos;
+               
+            }
+            else
+            {
+                retreatflag = false;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider hit)
+    {
+        
+
+        // 太陽光判定
+        if (hit.gameObject.GetComponent<SunLightController>())
+        {
+            retreatflag = false;
+            growflag = true;
         }
     }
     void OnTriggerExit(Collider hit)
     {
-  
-        
-        
+        // 太陽光判定
+        if (hit.gameObject.GetComponent<SunLightController>())
+        {
+            growflag = false;
+            retreatflag = true;
+
+        }
+
+
     }
 }
