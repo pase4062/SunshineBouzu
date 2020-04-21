@@ -23,7 +23,7 @@ public class Goal : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("nextStage");
+            SceneManager.LoadScene("NextStage");
         }
     }
 }
