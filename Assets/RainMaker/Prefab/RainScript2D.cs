@@ -44,7 +44,7 @@ namespace DigitalRuby.RainMaker
 
         private void EmitExplosion(ref Vector3 pos)
         {
-            int count = UnityEngine.Random.Range(2, 5);
+            int count = UnityEngine.Random.Range(2, 10);
             while (count != 0)
             {
                 float xVelocity = UnityEngine.Random.Range(-2.0f, 2.0f) * cameraMultiplier;
@@ -102,7 +102,7 @@ namespace DigitalRuby.RainMaker
                 {
                     Vector3 pos = particles[i].position + RainFallParticleSystem.transform.position;
                     hit = Physics2D.Raycast(pos, particles[i].velocity.normalized, particles[i].velocity.magnitude * Time.deltaTime);
-                    if (hit.collider != null && ((1 << hit.collider.gameObject.layer) & CollisionMask) != 0)
+                    if (hit.collider != null && ((2 << hit.collider.gameObject.layer) & CollisionMask) != 0)
                     {
                         if (CollisionLifeTimeRain == 0.0f)
                         {
