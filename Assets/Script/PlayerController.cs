@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(loadScene.name);
         }
 
-        if(!Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0),
+        if(!Physics.Raycast(transform.position,
                         Vector3.up,
                         10.0f
                         ))
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        Debug.DrawLine(transform.position + new Vector3(0, 0.5f, 0),
+        Debug.DrawLine(transform.position,
                 transform.position + new Vector3(0, 10.0f, 0), Color.blue);
 
 

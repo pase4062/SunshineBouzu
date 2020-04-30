@@ -10,7 +10,7 @@ public class Camara : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lookpos = GameObject.Find("player").GetComponent<Transform>();
+        lookpos = GameObject.Find("player2D").GetComponent<Transform>();
 
     }
 
@@ -23,10 +23,5 @@ public class Camara : MonoBehaviour
         //pos.y += (lookpos.position.y - transform.position.y) * Time.deltaTime * 2.0f;
 
         transform.position = pos;
-
-        if (Input.GetKey(KeyCode.M))
-        {
-            transform.position += new Vector3(2, 0, 0);
-        }
     }
 }
