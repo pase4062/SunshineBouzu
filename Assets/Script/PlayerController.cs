@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDirection;
 
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
@@ -56,5 +58,22 @@ public class PlayerController : MonoBehaviour
             // Sceneの読み直し
             SceneManager.LoadScene(loadScene.name);
         }
+
+        if(!Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0),
+                        Vector3.up,
+                        10.0f
+                        ))
+        {
+            // 現在のScene名を取得する
+            Scene loadScene = SceneManager.GetActiveScene();
+            // Sceneの読み直し
+            SceneManager.LoadScene(loadScene.name);
+
+        }
+
+        Debug.DrawLine(transform.position + new Vector3(0, 0.5f, 0),
+                transform.position + new Vector3(0, 10.0f, 0), Color.blue);
+
+
     }
 }
