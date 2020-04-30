@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
+    public bool debug;
     public float speed;         // 移動速度
     private Vector3 velocity;
 
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        debug = false;
 
     }
 
@@ -62,7 +64,7 @@ public class PlayerController : MonoBehaviour
         if(!Physics.Raycast(transform.position,
                         Vector3.up,
                         10.0f
-                        ))
+                        ) && !debug)
         {
             // 現在のScene名を取得する
             Scene loadScene = SceneManager.GetActiveScene();
