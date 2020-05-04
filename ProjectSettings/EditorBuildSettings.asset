@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene_kenta.unity
+    path: Assets/Scenes/Kenta/Title.unity
+    guid: f3400cd23d2334f4a8bee9eabfe11340
+  - enabled: 1
+    path: Assets/Scenes/Kenta/SampleScene_kenta.unity
     guid: c85b99b9305dead4f968a115055f4d6f
   - enabled: 1
-    path: Assets/Scenes/NextStage.unity
+    path: Assets/Scenes/Kenta/NextStage.unity
     guid: ae38927158859cc4ebd11a0082e6dc8a
   m_configObjects: {}
