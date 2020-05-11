@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightController : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
-    public GameObject point;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +15,16 @@ public class LightController : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.name == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 }

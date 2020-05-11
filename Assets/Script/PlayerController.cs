@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
     public bool debug;
@@ -10,13 +11,14 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 moveDirection;
-
+    private Vector3 respornPos;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        debug = false;
+        debug = true;
+        respornPos = transform.position;
 
     }
 
@@ -66,16 +68,30 @@ public class PlayerController : MonoBehaviour
                         10.0f
                         ) && !debug)
         {
-            // 現在のScene名を取得する
-            Scene loadScene = SceneManager.GetActiveScene();
-            // Sceneの読み直し
-            SceneManager.LoadScene(loadScene.name);
-
+            transform.position = respornPos;
         }
 
         Debug.DrawLine(transform.position,
                 transform.position + new Vector3(0, 10.0f, 0), Color.blue);
 
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.name == "CheckPoint")
+    //    {
+
+    //        respornPos = collision.gameObject.transform.position;
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.name == "CheckPoint")
+        {
+            respornPos = other.gameObject.transform.position;
+        }
 
     }
 }

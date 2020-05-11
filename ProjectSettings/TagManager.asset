@@ -7,6 +7,7 @@ TagManager:
   - Sun
   - StartWall
   - EndWall
+  - Ground
   layers:
   - Default
   - TransparentFX
