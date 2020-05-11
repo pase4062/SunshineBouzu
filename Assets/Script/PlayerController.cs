@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
+    public bool debug;
     public float speed;         // 移動速度
     private Vector3 velocity;
 
     private CharacterController controller;
     private Vector3 moveDirection;
 
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        debug = false;
+
     }
 
     // Update is called once per frame
@@ -56,5 +60,22 @@ public class PlayerController : MonoBehaviour
             // Sceneの読み直し
             SceneManager.LoadScene(loadScene.name);
         }
+
+        if(!Physics.Raycast(transform.position,
+                        Vector3.up,
+                        10.0f
+                        ) && !debug)
+        {
+            // 現在のScene名を取得する
+            Scene loadScene = SceneManager.GetActiveScene();
+            // Sceneの読み直し
+            SceneManager.LoadScene(loadScene.name);
+
+        }
+
+        Debug.DrawLine(transform.position,
+                transform.position + new Vector3(0, 10.0f, 0), Color.blue);
+
+
     }
 }
