@@ -77,7 +77,7 @@ public class PlantController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider hit)
+    void OnTriggerEnter2D(Collider2D hit)
     {
         
 
@@ -88,7 +88,7 @@ public class PlantController : MonoBehaviour
             growflag = true;
         }
     }
-    void OnTriggerExit(Collider hit)
+    void OnTriggerExit2D(Collider2D hit)
     {
         // 太陽光判定
         if (hit.gameObject.GetComponent<SunLightController>())
