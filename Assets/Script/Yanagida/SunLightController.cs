@@ -35,23 +35,24 @@ public class SunLightController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider hit)
+    void OnTriggerEnter2D(Collider2D hit)
     {
+        Debug.Log("a");
         // 太陽光判定
-        if (hit.gameObject.GetComponent<rainbow>())
+        if (hit.gameObject.GetComponent<Rainbow>())
         {
    
 
-            hit.gameObject.GetComponent<rainbow>().OnSun();
+            hit.gameObject.GetComponent<Rainbow>().OnSun();
         }
     }
-    void OnTriggerExit(Collider hit)
+    void OnTriggerExit2D(Collider2D hit)
     {
         // 太陽光判定
         //if (hit.gameObject.name == "Rainbow")
-        if(hit.gameObject.GetComponent<rainbow>())
+        if(hit.gameObject.GetComponent<Rainbow>())
         {
-            hit.gameObject.GetComponent<rainbow>().OutSun();
+            hit.gameObject.GetComponent<Rainbow>().OutSun();
         }
     }
 }
