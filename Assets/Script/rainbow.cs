@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rainbow : MonoBehaviour
+public class Rainbow : MonoBehaviour
 {
     //private GameObject gameObject;
     private Color color;        // オブジェクトカラー
@@ -29,7 +29,7 @@ public class rainbow : MonoBehaviour
         }
         if(!alphaflag)
         {
-            if (alpha > 0.3f)
+            if (alpha > 0.1f)
             {
                 alpha += -0.01f;
             }
@@ -43,9 +43,10 @@ public class rainbow : MonoBehaviour
 
     public void OnSun()
     {
+        Debug.Log("a");
         // 太陽光判定
         alphaflag = true;
-        gameObject.GetComponent<BoxCollider>().isTrigger = false;
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
     public void OutSun()
@@ -53,6 +54,6 @@ public class rainbow : MonoBehaviour
         // 太陽光が離れた
         
         alphaflag = false;
-        gameObject.GetComponent<BoxCollider>().isTrigger = true;
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }

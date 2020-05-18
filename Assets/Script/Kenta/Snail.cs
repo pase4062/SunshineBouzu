@@ -10,6 +10,9 @@ public class Snail : MonoBehaviour
     // RigidBody
     private Rigidbody2D rb;
 
+    // スケール
+    Vector2 scale;
+
     // 右向きフラグ
     public bool bRight;
 
@@ -20,6 +23,7 @@ public class Snail : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        scale = transform.localScale;
         bRight = true;
         bSun = false;
     }
@@ -36,11 +40,13 @@ public class Snail : MonoBehaviour
         {
             if (bRight)
             {
+                scale.x = 1;
                 rb.velocity = new Vector2(speed, rb.velocity.y);
             }
 
             if (!bRight)
             {
+                scale.x = -1;
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
         }
@@ -48,11 +54,13 @@ public class Snail : MonoBehaviour
         {
 
         }
+
+        transform.localScale = scale;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("EndWall"))
+        if (collision.gameObject.CompareTag("EndWall"))
         {
             bRight = false;
         }
@@ -60,7 +68,5 @@ public class Snail : MonoBehaviour
         {
             bRight = true;
         }
-
-        
     }
 }
