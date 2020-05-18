@@ -17,14 +17,13 @@ public class CheckPoint : MonoBehaviour
         
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (other.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             Destroy(this.gameObject);
         }
 
     }
+
 }
