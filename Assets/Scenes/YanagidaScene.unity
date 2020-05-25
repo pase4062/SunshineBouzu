@@ -190,6 +190,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 13.85
       objectReference: {fileID: 0}
+    - target: {fileID: 5249026908114025649, guid: 21af90f8a126ecb4f92a40c7bbd75036,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472575893560937354, guid: 21af90f8a126ecb4f92a40c7bbd75036,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21af90f8a126ecb4f92a40c7bbd75036, type: 3}
 --- !u!1 &519420028
@@ -6182,6 +6192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: 0
   speed: 2
+  jumpPower: 0
+  gc: {fileID: 0}
 --- !u!143 &1884264566
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6483,6 +6495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: 0
   speed: 2
+  jumpPower: 0
+  gc: {fileID: 0}
 --- !u!143 &1978578204
 CharacterController:
   m_ObjectHideFlags: 0

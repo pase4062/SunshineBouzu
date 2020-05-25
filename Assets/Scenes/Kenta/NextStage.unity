@@ -5510,7 +5510,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26dc8ff3c3d01142b32a724ba0d30b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   speed: 2
+  jumpPower: 0
+  gc: {fileID: 0}
 --- !u!143 &1884264566
 CharacterController:
   m_ObjectHideFlags: 0

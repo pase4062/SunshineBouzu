@@ -60,13 +60,9 @@ public class Snail : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("EndWall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            bRight = false;
-        }
-        else if (collision.gameObject.CompareTag("StartWall"))
-        {
-            bRight = true;
+            bRight = !bRight;
         }
     }
 }

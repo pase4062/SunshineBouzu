@@ -8,6 +8,7 @@ TagManager:
   - StartWall
   - EndWall
   - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
