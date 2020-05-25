@@ -795,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.522
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
         type: 3}
@@ -887,7 +887,7 @@ Transform:
   m_GameObject: {fileID: 1007804638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.94, y: 3.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 780058246}
   m_RootOrder: 3
@@ -971,7 +971,7 @@ Transform:
   - {fileID: 917541012}
   - {fileID: 723018}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044233137
 GameObject:
@@ -6277,7 +6277,7 @@ PrefabInstance:
     - target: {fileID: 1018649554404172137, guid: 68fbb09d77b68d540b33ce9e3deca72f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1018649554404172137, guid: 68fbb09d77b68d540b33ce9e3deca72f,
         type: 3}
@@ -6783,7 +6783,7 @@ PrefabInstance:
     - target: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.522
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
         type: 3}
@@ -7185,15 +7185,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 2, y: -2, z: 0}
-    second:
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 8, y: -2, z: 0}
     second:
       m_TileIndex: 0
@@ -7261,6 +7252,15 @@ Tilemap:
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 2, y: -1, z: 0}
+    second:
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7400,7 +7400,7 @@ PrefabInstance:
     - target: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.522
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
         type: 3}
