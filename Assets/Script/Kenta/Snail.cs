@@ -19,6 +19,9 @@ public class Snail : MonoBehaviour
     // 太陽フラグ
     public bool bSun;
 
+    // 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class Snail : MonoBehaviour
         scale = transform.localScale;
         bRight = true;
         bSun = false;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,6 +67,24 @@ public class Snail : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             bRight = !bRight;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Sun"))
+        {
+            anim.SetBool("Hide", true);
+            bSun = !bSun;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sun"))
+        {
+            anim.SetBool("Hide", false);
+            bSun = !bSun;
         }
     }
 }
