@@ -43,7 +43,7 @@ public class Rainbow : MonoBehaviour
 
     public void OnSun()
     {
-        Debug.Log("a");
+        
         // 太陽光判定
         alphaflag = true;
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;

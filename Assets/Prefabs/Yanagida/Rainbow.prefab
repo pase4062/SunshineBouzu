@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4719890666963033193}
   - component: {fileID: 4719890666963033192}
   - component: {fileID: 4719890666963033206}
-  - component: {fileID: 4719890666963033195}
   - component: {fileID: 4719890666963033194}
+  - component: {fileID: 6097668740309967848}
   m_Layer: 0
   m_Name: Rainbow
   m_TagString: Ground
@@ -108,19 +108,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4719890666963033195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4719890666963033197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781f3633413824144b76809d3f7527af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alpha: 0.2
 --- !u!50 &4719890666963033194
 Rigidbody2D:
   serializedVersion: 4
@@ -142,3 +129,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &6097668740309967848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4719890666963033197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781f3633413824144b76809d3f7527af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.1

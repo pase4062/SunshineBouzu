@@ -37,7 +37,7 @@ public class SunLightController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hit)
     {
-        Debug.Log("a");
+        
         // 太陽光判定
         if (hit.gameObject.GetComponent<Rainbow>())
         {
