@@ -7,31 +7,55 @@ namespace Core
 {
     public class ShadowBlockController : MonoBehaviour
     {
+        private bool operateFlag;   // 操作判定
+
         private void Awake()
         {
             mover_.Initialize();
         }
 
+        private void Start()
+        {
+            operateFlag = false;
+        }
+
         private void Update()
         {
-            if (input_.GetLeftKey())
+            if (operateFlag)
             {
-                mover_.MoveLeft();
-            }
 
-            if (input_.GetRightKey())
-            {
-                mover_.MoveRight();
-            }
 
-            if (input_.GetOpenKey())
-            {
-                door_.Open();
-            }
+                if (input_.GetLeftKey())
+                {
+                    mover_.MoveLeft();
+                }
 
-            if (input_.GetCloseKey())
+                if (input_.GetRightKey())
+                {
+                    mover_.MoveRight();
+                }
+
+                if (input_.GetOpenKey())
+                {
+                    door_.Open();
+                }
+
+                if (input_.GetCloseKey())
+                {
+                    door_.Close();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                door_.Close();
+                if (operateFlag)
+                {
+                    operateFlag = false;
+                }
+                else
+                {
+                    operateFlag = true;
+                }
+
             }
         }
 

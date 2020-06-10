@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private int dryFrame;         // 乾燥フレーム
     private int dryCnt;           // フレームカウント
 
+    private bool operateFlag;       // 操作判定
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,56 +40,79 @@ public class PlayerController : MonoBehaviour
         colorRMax = 180;
         playerColorR = colorRMax;
         dryCnt = 0;
+
+        operateFlag = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gc.GetGround())
-        { 
-            //地面についているか判定
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                audioSource.PlayOneShot(audioClip[0]);  // ジャンプSE再生
+        // てるてる坊主選択時のみ操作可能
+        if (operateFlag)
+        {
+            if (gc.GetGround())
+            { 
+                //地面についているか判定
+                if (Input.GetKeyDown(KeyCode.B))
+                {
+                    audioSource.PlayOneShot(audioClip[0]);  // ジャンプSE再生
 
-                rb.AddForce(Vector2.up * jumpPower);    //ジャンプするベクトルの代入
+                    rb.AddForce(Vector2.up * jumpPower);    //ジャンプするベクトルの代入
+                }
             }
+
+            // 移動
+            velocity = Vector3.zero;
+
+        
+
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                velocity -= Vector3.right;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                velocity += Vector3.right;
+            }
+
+            velocity = velocity.normalized * speed * Time.deltaTime;
+
+            if (velocity.magnitude > 0)
+            {
+                transform.position += velocity;
+            }
+
+            if (Input.GetKey(KeyCode.Q))
+            {
+                // 現在のScene名を取得する
+                Scene loadScene = SceneManager.GetActiveScene();
+                // Sceneの読み直し
+                SceneManager.LoadScene(loadScene.name);
+            }
+
+            // 雨判定
+            if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1.2f),
+                            Vector2.up,
+                            10.0f
+                            ) && !debug)
+            {
+                transform.position = respornPos;
+            }
+
         }
 
-        // 移動
-        velocity = Vector3.zero;
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            velocity -= Vector3.right;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            velocity += Vector3.right;
-        }
-
-        velocity = velocity.normalized * speed * Time.deltaTime;
-
-        if (velocity.magnitude > 0)
-        {
-            transform.position += velocity;
-        }
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            // 現在のScene名を取得する
-            Scene loadScene = SceneManager.GetActiveScene();
-            // Sceneの読み直し
-            SceneManager.LoadScene(loadScene.name);
-        }
-
-        // 雨判定
-        if(!Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y + 1.2f),
-                        Vector2.up,
-                        10.0f
-                        ) && !debug)
-        {
-            transform.position = respornPos;
+            if(operateFlag)
+            {
+                operateFlag = false;
+            }
+            else
+            {
+                operateFlag = true;
+            }    
         }
 
         SetPlayerColor();
