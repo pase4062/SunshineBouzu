@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Camara : MonoBehaviour
 {
-    #pragma warning disable 0649    // 警告非表示
+#pragma warning disable 0649    // 警告非表示
+
+    AudioSource audioSource;
+    [SerializeField]
+    private List<AudioClip> audioClip = new List<AudioClip>();
 
     private GameObject lookobj;     // 注視するオブジェクト
     private Transform lookpos;      // 注視点
@@ -20,6 +24,8 @@ public class Camara : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         lookobj = Player;
         lookpos = lookobj.GetComponent<Transform>();
 
@@ -38,6 +44,7 @@ public class Camara : MonoBehaviour
         // 注視物を変更
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            audioSource.PlayOneShot(audioClip[0]);  // 切り替えSE再生
             ChangeFocus();
         }
     }

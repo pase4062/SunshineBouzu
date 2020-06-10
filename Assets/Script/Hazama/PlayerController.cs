@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    AudioSource audioSource;
+    [SerializeField]
+    private List<AudioClip> audioClip = new List<AudioClip>();
+
     public bool debug;　　　　　// デバッグモード
     public float speed;         // 移動速度
     private Vector3 velocity;
@@ -15,13 +19,25 @@ public class PlayerController : MonoBehaviour
     public int jumpPower;        // ジャンプ力
     public  GroundCheck gc;      // 接地判定
 
+    private byte playerColorR;    // プレイヤー色(変更するr値のみ)
+    private byte colorRMax;       // プレイヤー色赤最大値
+    [SerializeField]
+    private int dryFrame;         // 乾燥フレーム
+    private int dryCnt;           // フレームカウント
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody2D>();
         debug = true;
         respornPos = transform.position;
         jumpPower = 250;
+
+        colorRMax = 180;
+        playerColorR = colorRMax;
+        dryCnt = 0;
     }
 
     // Update is called once per frame
@@ -32,7 +48,9 @@ public class PlayerController : MonoBehaviour
             //地面についているか判定
             if (Input.GetKeyDown(KeyCode.B))
             {
-                rb.AddForce(Vector2.up * jumpPower); //ジャンプするベクトルの代入
+                audioSource.PlayOneShot(audioClip[0]);  // ジャンプSE再生
+
+                rb.AddForce(Vector2.up * jumpPower);    //ジャンプするベクトルの代入
             }
         }
 
@@ -72,6 +90,8 @@ public class PlayerController : MonoBehaviour
             transform.position = respornPos;
         }
 
+        SetPlayerColor();
+
         Debug.DrawLine(transform.position,
                 transform.position + new Vector3(0, 10.0f, 0), Color.blue);
 
@@ -86,4 +106,39 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void SetPlayerColor()
+    {
+        dryCnt++;
+
+        if(dryCnt == dryFrame)
+        {
+            dryCnt = 0;
+            // 自然乾燥
+            if (playerColorR < colorRMax)
+            {
+                playerColorR += 1;
+            }
+        }
+        
+        
+
+        if(playerColorR < 50)
+        {
+            // リセット(ゲームオーバー)
+
+        }
+        this.GetComponent<Renderer>().material.color = new Color32(playerColorR, 170, 170, 255);
+    }
+
+    public void ColRain()
+    {
+        if(playerColorR > 50)
+        {
+            // 濡れました
+            playerColorR -= 10;
+
+        }
+        
+    }
+   
 }
