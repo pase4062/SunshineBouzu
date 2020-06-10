@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26dc8ff3c3d01142b32a724ba0d30b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: ff5d3b9bf4c933a4cbe54665b11d0ad1, type: 3}
   debug: 0
   speed: 2
   jumpPower: 0

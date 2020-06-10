@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    AudioSource audioSource;
+    [SerializeField]
+    private List<AudioClip> audioClip = new List<AudioClip>();
+
     public bool debug;　　　　　// デバッグモード
     public float speed;         // 移動速度
     private Vector3 velocity;
@@ -18,6 +22,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody2D>();
         debug = true;
         respornPos = transform.position;
@@ -32,7 +38,9 @@ public class PlayerController : MonoBehaviour
             //地面についているか判定
             if (Input.GetKeyDown(KeyCode.B))
             {
-                rb.AddForce(Vector2.up * jumpPower); //ジャンプするベクトルの代入
+                audioSource.PlayOneShot(audioClip[0]);  // ジャンプSE再生
+
+                rb.AddForce(Vector2.up * jumpPower);    //ジャンプするベクトルの代入
             }
         }
 
