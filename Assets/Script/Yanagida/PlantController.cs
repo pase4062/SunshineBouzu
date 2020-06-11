@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlantController : MonoBehaviour
 {
+
+    AudioSource audioSource;
+    [SerializeField]
+    private List<AudioClip> audioClip = new List<AudioClip>();
+
     public float growmax;       // 成長最大値
     public float growspeed;     // 成長速度
     private Vector3 Spos;       // 初期座標
@@ -16,6 +21,8 @@ public class PlantController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         growflag = false;
         retreatflag = false;
         Transform trans = this.transform;
@@ -84,6 +91,9 @@ public class PlantController : MonoBehaviour
         // 太陽光判定
         if (hit.gameObject.GetComponent<SunLightController>())
         {
+         
+            audioSource.PlayOneShot(audioClip[0]);  // SE再生
+
             retreatflag = false;
             growflag = true;
         }

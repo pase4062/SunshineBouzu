@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Rainbow : MonoBehaviour
 {
+    AudioSource audioSource;
+    [SerializeField]
+    private List<AudioClip> audioClip = new List<AudioClip>();
+
     //private GameObject gameObject;
     private Color color;        // オブジェクトカラー
     private bool alphaflag;
@@ -11,6 +15,7 @@ public class Rainbow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
 
         color = gameObject.GetComponent<Renderer>().material.color;
         color.a = alpha;
@@ -43,7 +48,8 @@ public class Rainbow : MonoBehaviour
 
     public void OnSun()
     {
-        
+        audioSource.PlayOneShot(audioClip[0]);  // SE再生
+
         // 太陽光判定
         alphaflag = true;
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
