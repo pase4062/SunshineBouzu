@@ -25,12 +25,12 @@ namespace Core
             {
 
 
-                if (input_.GetLeftKey())
+                if (input_.GetLeftKey() || Input.GetAxis("XboxRightAxisX") >= 0.7f)
                 {
                     mover_.MoveLeft();
                 }
 
-                if (input_.GetRightKey())
+                if (input_.GetRightKey() || Input.GetAxis("XboxRightAxisX") <= -0.7f)
                 {
                     mover_.MoveRight();
                 }
@@ -45,7 +45,7 @@ namespace Core
                     door_.Close();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
             {
                 if (operateFlag)
                 {

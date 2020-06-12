@@ -42,7 +42,7 @@ public class Camara : MonoBehaviour
         transform.position = pos;
 
         // 注視物を変更
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
         {
             audioSource.PlayOneShot(audioClip[0]);  // 切り替えSE再生
             ChangeFocus();

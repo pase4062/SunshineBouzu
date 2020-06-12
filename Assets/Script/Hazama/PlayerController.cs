@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             if (gc.GetGround())
             { 
                 //地面についているか判定
-                if (Input.GetKeyDown(KeyCode.B))
+                if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("Jump"))
                 {
                     audioSource.PlayOneShot(audioClip[0]);  // ジャンプSE再生
 
@@ -67,12 +67,12 @@ public class PlayerController : MonoBehaviour
         
 
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetAxis("XboxLeftAxisX") >= 0.7f)
             {
                 velocity -= Vector3.right;
             }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || Input.GetAxis("XboxLeftAxisX") <= -0.7f)
             {
                 velocity += Vector3.right;
             }
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
         {
             if(operateFlag)
             {
