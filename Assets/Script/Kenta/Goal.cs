@@ -6,24 +6,38 @@ using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
     GameObject player;
-    
+
+    ParticleSystem GoalPositionParticle;
+
+    ParticleSystem ClearEffectParticle;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GoalPositionParticle = GameObject.Find("GoalPosition").GetComponent<ParticleSystem>();
+        ClearEffectParticle = GameObject.Find("ClearEffect").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider hit)
-    {
-        if (hit.gameObject.CompareTag("Player"))
+        if(GoalPositionParticle.isStopped)
         {
-            SceneManager.LoadScene("NextStage");
+            if (ClearEffectParticle.isStopped)
+            {
+                SceneManager.LoadScene("NextStage");
+            }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GoalPositionParticle.Stop();
+            ClearEffectParticle.Play();
+        }
+    }
+
+    
 }
