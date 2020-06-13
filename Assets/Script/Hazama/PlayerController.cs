@@ -92,14 +92,14 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene(loadScene.name);
             }
 
-            // 雨判定
-            if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1.2f),
-                            Vector2.up,
-                            10.0f
-                            ) && !debug)
-            {
-                transform.position = respornPos;
-            }
+            // 雨判定(タイルマップが取れているかびみょい)
+            //if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1.2f),
+            //                Vector2.up,
+            //                10.0f
+            //                ) && !debug)
+            //{
+            //    transform.position = respornPos;
+            //}
 
         }
 
@@ -150,7 +150,9 @@ public class PlayerController : MonoBehaviour
         if(playerColorR < 50)
         {
             // リセット(ゲームオーバー)
+            transform.position = respornPos;
 
+            playerColorR = colorRMax;       // マテリアルを初期の値に
         }
         this.GetComponent<Renderer>().material.color = new Color32(playerColorR, 170, 170, 255);
     }
