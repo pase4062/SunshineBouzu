@@ -399,6 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60220388f3913b41bd734e6dbf1b9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: []
+  Player: {fileID: 0}
+  Sun: {fileID: 0}
 --- !u!4 &617484367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4719890666963033193, guid: be3f31393fb939a4aa08fb659bb74ef2,
@@ -1057,7 +1060,7 @@ Transform:
   - {fileID: 917541012}
   - {fileID: 723018}
   m_Father: {fileID: 1063278398}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044233137
 GameObject:
@@ -1260,8 +1263,8 @@ Transform:
   - {fileID: 768952559}
   - {fileID: 645098551}
   - {fileID: 638943036}
-  - {fileID: 1700529523}
   - {fileID: 1034204210}
+  - {fileID: 1700529523}
   - {fileID: 888417733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -6586,7 +6589,7 @@ PrefabInstance:
     - target: {fileID: 1018649554404172137, guid: 68fbb09d77b68d540b33ce9e3deca72f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1018649554404172137, guid: 68fbb09d77b68d540b33ce9e3deca72f,
         type: 3}
@@ -6652,10 +6655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26dc8ff3c3d01142b32a724ba0d30b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: []
   debug: 0
   speed: 2
   jumpPower: 0
   gc: {fileID: 0}
+  dryFrame: 0
 --- !u!143 &1884264566
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6966,10 +6971,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26dc8ff3c3d01142b32a724ba0d30b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: []
   debug: 0
   speed: 2
   jumpPower: 0
   gc: {fileID: 0}
+  dryFrame: 0
 --- !u!143 &1978578204
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7073,7 +7080,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.8, y: 0.6}
+    oldSize: {x: 3.0769231, y: 0.7692308}
     newSize: {x: 2.8, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
