@@ -29,10 +29,16 @@ public class Goal : MonoBehaviour
     {
         if(GoalPositionParticle.isStopped)
         {
+            // ゴール時キー入力で遷移
+            if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("A_Button"))
+            {
+                SceneManager.LoadScene("Stage2");
+            }
+
             if (ClearEffectParticle.isStopped)
             {
 
-                SceneManager.LoadScene("NextStage");
+                SceneManager.LoadScene("Stage2");
             }
         }
     }
@@ -41,7 +47,11 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            audioSource.PlayOneShot(audioClip[0]);  // ステージクリアSE再生
+            if (GoalPositionParticle.isPlaying)
+            {
+                audioSource.PlayOneShot(audioClip[0]);  // ステージクリアSE再生
+            }
+            
 
             GoalPositionParticle.Stop();
             ClearEffectParticle.Play();

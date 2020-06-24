@@ -77,6 +77,10 @@ public class Snail : MonoBehaviour
             anim.SetBool("Hide", true);
             bSun = !bSun;
         }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            bRight = !bRight;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
