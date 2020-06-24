@@ -19,8 +19,12 @@ public class Camara : MonoBehaviour
     [SerializeField]
     private GameObject Sun;     // 太陽君
 
+    [SerializeField]
+    private float minX;
 
-    
+    [SerializeField]
+    private float maxX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +40,17 @@ public class Camara : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
+        
+
         pos.x += (lookpos.position.x - transform.position.x) * Time.deltaTime * 2.0f;
         //pos.y += (lookpos.position.y - transform.position.y) * Time.deltaTime * 2.0f;
 
-        transform.position = pos;
+        // ステージ端ならカメラを動かさない
+        if (pos.x > minX && pos.x < maxX)
+        {
+            transform.position = pos;
+        }
+        
 
         // 注視物を変更
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
