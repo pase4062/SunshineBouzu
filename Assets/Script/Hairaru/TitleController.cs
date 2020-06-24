@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
 namespace Core
 {
     public class TitleController : MonoBehaviour
@@ -28,6 +30,7 @@ namespace Core
                 else
                 {
                     // シーン遷移またはゲーム画面に移行
+                    SceneManager.LoadScene("YanagidaScene");
                 }
             }
             else
@@ -49,7 +52,7 @@ namespace Core
                             FadeInGameStart();
                         }
 
-                        if (Input.GetKeyDown(KeyCode.Return))
+                        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A_Button"))  // キー入力
                         {
                             is_start_ = true;
                         }

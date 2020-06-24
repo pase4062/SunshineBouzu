@@ -196,3 +196,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6bd31cf4a1de3d14c96ecbad51ea7ecf, type: 3}
   Player: {fileID: 0}
   Sun: {fileID: 0}
+  minX: -1
+  maxX: 10

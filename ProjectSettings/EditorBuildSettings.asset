@@ -5,13 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kenta/Title.unity
     guid: f3400cd23d2334f4a8bee9eabfe11340
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kenta/SampleScene_kenta.unity
     guid: c85b99b9305dead4f968a115055f4d6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kenta/NextStage.unity
     guid: ae38927158859cc4ebd11a0082e6dc8a
+  - enabled: 1
+    path: Assets/Scenes/Hairaru/TitleScene.unity
+    guid: 61230eaff1918944c8b0a6b8447b0d9d
+  - enabled: 1
+    path: Assets/Scenes/Yanagida/YanagidaScene.unity
+    guid: e0a4d464bfd2e8b48ad6771a5a2b5342
+  - enabled: 1
+    path: Assets/Scenes/Yanagida/Stage2.unity
+    guid: 08b9a5b8c8f781149948148fc5e8a73f
   m_configObjects: {}

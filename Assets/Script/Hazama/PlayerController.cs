@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             if (gc.GetGround())
             { 
                 //地面についているか判定
-                if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("A_Button"))
                 {
                     audioSource.PlayOneShot(audioClip[0]);  // ジャンプSE再生
 
