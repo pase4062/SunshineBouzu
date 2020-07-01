@@ -15,6 +15,8 @@ public class Goal : MonoBehaviour
 
     ParticleSystem ClearEffectParticle;
 
+    int SceneIndexNum = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class Goal : MonoBehaviour
 
         GoalPositionParticle = GameObject.Find("GoalPosition").GetComponent<ParticleSystem>();
         ClearEffectParticle = GameObject.Find("ClearEffect").GetComponent<ParticleSystem>();
+        SceneIndexNum = SceneManager.GetActiveScene().buildIndex;   // 現在のシーン番号取得
+        FadeManager.FadeIn();
     }
 
     // Update is called once per frame
@@ -32,13 +36,15 @@ public class Goal : MonoBehaviour
             // ゴール時キー入力で遷移
             if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("A_Button"))
             {
-                SceneManager.LoadScene("Stage2");
+                FadeManager.FadeOut(SceneIndexNum + 1);
+                //SceneManager.LoadScene("Stage2");
             }
 
             if (ClearEffectParticle.isStopped)
             {
 
-                SceneManager.LoadScene("Stage2");
+                FadeManager.FadeOut(SceneIndexNum + 1);
+                //SceneManager.LoadScene("Stage2");
             }
         }
     }
